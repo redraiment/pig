@@ -1,0 +1,107 @@
+<html>
+  <head>
+    <title>Pig - [梦婷轩系列] - 子清行 v0.7.1</title>
+    <meta http-equiv="Content-Type" content="text/hta; charset=GBK"/>
+    <hta:application id="pig"
+       ApplicationName="Pig"
+       Border="thin"
+       BorderStyle="normal"
+       Caption="yes"
+       ContextMenu="no"
+       Icon="pig.ico"
+       InnerBorder="no"
+       MaximizeButton="no"
+       MinimizeButton="yes"
+       Navigable="no"
+       Scroll="no"
+       Selection="no"
+       ShowInTaskBar="yes"
+       SingleInstance="yes"
+       SysMenu="yes"
+       Version="0.7.1"
+       WindowState="normal"/>
+    <script language="JavaScript" type="text/javascript" src="script/jquery-1.4.4.min.js"> </script>
+    <script language="JavaScript" type="text/javascript" src="script/jquery.dimensions.js"> </script>
+    <script language="JavaScript" type="text/javascript" src="script/jquery.positionBy.js"> </script>
+    <script language="JavaScript" type="text/javascript" src="script/jquery.bgiframe.js"> </script>
+    <script language="JavaScript" type="text/javascript" src="script/jquery.jdMenu.js"> </script>
+    <script language="JavaScript" type="text/javascript" src="script/pig.js"> </script>
+    <script language="VBScript" src="script/pig.vbs"> </script>
+
+    <link rel="stylesheet" type="text/css" href="css/jquery.jdMenu.css" />
+    <link rel="stylesheet" type="text/css" href="css/pig.css" />
+  </head>
+  <body>
+    <ul class="jd_menu">
+      <li>文件(F)</li>
+      <ul>
+        <li id="Menu_Add">添加(A)　　　　　　　　　Ctrl+I</li>
+        <li id="Menu_Delete">删除(D)　　　　　　　　　Ctrl+D</li>
+        <li><hr /></li>
+        <li id="Menu_Exit">退出(E)　　　　　　　　　Ctrl+Q</li>
+      </ul>
+      <li>选项(O)</li>
+      <ul>
+        <li id="Menu_Set">设置(S)</li>
+        <li id="Menu_Style">排版(L)</li>
+      </ul>
+      <li>帮助(H)</li>
+      <ul>
+        <li><a href="help.html">如何实现(I)　　　　　　　　　F1</a></li>
+        <li id="Menu_About">关于(A)</li>
+      </ul>
+    </ul>
+    <div id="Pane_Main" class="pane">
+      <select id="files" multiple="multiple" size="4"></select>
+      <button id="Button_Add">╋</button>
+      <button id="Button_Delete">━</button>
+      <button id="Button_Convert">转换</button>
+      <img id="logo" src="image/logo.png"/>
+    </div>
+    <div id="Pane_Set" class="pane">
+      <div class="frame">
+        <div><span class="frame_title">设置</span></div>
+        <div class="set_item">
+          <input id="set_overwrite" type="checkbox">覆盖已存在的文件</input>
+        </div>
+        <div class="set_item">
+          <input id="set_single" type="checkbox">保存成单个文件</input>
+        </div>
+        <div class="output_item">
+          <input id="text_output_path" type="text" size="28" value="" disabled="disabled"></input>
+          <button id="Button_Browse" disabled="disabled">...</button>
+        </div>
+      </div>
+      <button id="Button_Set_Save" class="save">保存</button>
+      <button id="Button_Set_Cancel" class="cancel">取消</button>
+    </div>
+    <div id="Pane_Style" class="pane">
+      <div class="frame">
+        <div><span class="frame_title">排版</span></div>
+        <div>
+          <div class="style_item">
+            <input id="set_num" type="checkbox">序号</input>
+          </div>
+          <div class="style_item">
+            <input id="set_word" type="checkbox">单词</input>
+          </div>
+          <div class="style_item">
+            <input id="set_phonetic_alphabet" type="checkbox">音标</input>
+          </div>
+          <div class="style_item">
+            <input id="set_paraphrase" type="checkbox">解释</input>
+          </div>
+          <div class="output_style">
+            <label>格式：</label>
+            <select>
+              <option value="HTML">网页</option>
+              <option value="EXCEL">Excel</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button id="Button_Style_Save" class="save">保存</button>
+      <button id="Button_Style_Cancel" class="cancel">取消</button>
+    </div>
+  </body>
+</html>

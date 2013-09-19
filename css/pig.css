@@ -1,0 +1,119 @@
+/* frame */
+
+body {
+  font-family: Î¢ÈíÑÅºÚ, ËÎÌå, Helvetica;
+  margin: 0px;
+  padding: 0px;
+}
+
+.pane {
+  margin: 0px;
+  padding: 0px;
+}
+
+.frame {
+  font-family: Consolas;
+  border: 1px solid black;
+  margin: 15px;
+  width: 330px;
+  height: 180px;
+}
+
+.frame_title {
+  font-size: 12px;
+  background-color: white;
+  position: relative;
+  left: 1em;
+  top: -0.5em;
+}
+
+.set_item {
+  margin: 0em 1em;
+  padding: 0.5em 0em;
+}
+
+.output_item {
+  margin: 0em 2.5em;
+  padding: 0.5em 0em;
+}
+
+.style_item {
+  margin: 0em 1em;
+  padding: 0.5em 0em;
+}
+
+.style_item input {
+  margin: 0em 0.5em;
+  padding: 0em;
+}
+
+.output_style {
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  top: 60px;
+  left: 200px;
+}
+
+select#files {
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  width: 300px;
+  height: 190px;
+  border: 1px solid black;
+}
+
+/* Button */
+
+button {
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+}
+
+button.save {
+  font-size: 12px;
+  top: 230px;
+  left: 250px;
+}
+
+button.cancel {
+  font-size: 12px;
+  top: 230px;
+  left: 300px;
+}
+
+#Button_Convert {
+  font-size: 12px;
+  top: 230px;
+  left: 250px;
+  width: 60px;
+  height: 30px;
+}
+
+#Button_Add {
+  top: 30px;
+  left: 320px;
+  width: 30px;
+  height: 30px;
+}
+
+#Button_Delete {
+  top: 70px;
+  left: 320px;
+  width: 30px;
+  height: 30px;
+}
+
+/* image */
+
+img#logo {
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  top: 230px;
+  left: 20px;
+}

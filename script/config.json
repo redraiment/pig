@@ -1,0 +1,12 @@
+{
+  overwrite: false,
+  single: false,
+  output_path: "",
+  style: "HTML",
+  output: [
+    "num",
+    "word",
+    "phonetic_alphabet",
+    "paraphrase"
+  ]
+};

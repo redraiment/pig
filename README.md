@@ -28,19 +28,19 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href="http://pig-formatter.googlecode.com/files/Pig_0_1_1.rar" target="_blank">0.1.1</a></td>
+      <td><a href="https://github.com/redraiment/pig/archive/v0.1.1.zip" target="_blank">0.1.1</a></td>
       <td>最初版本，收藏用。</td>
       <td>5K</td>
       <td>2008-11-09</td>
     </tr>
     <tr>
-      <td><a href="http://pig-formatter.googlecode.com/files/Pig_0_3_0.rar" target="_blank">0.3.0</a></td>
+      <td><a href="https://github.com/redraiment/pig/archive/v0.3.0.zip" target="_blank">0.3.0</a></td>
       <td>增加了图形界面，批量文件转换。</td>
       <td>260K</td>
       <td>2009-01-27</td>
     </tr>
     <tr>
-      <td><a href="http://pig-formatter.googlecode.com/files/Pig_0_3_1.rar" target="_blank">0.3.1</a></td>
+      <td><a href="https://github.com/redraiment/pig/archive/v0.3.1.zip" target="_blank">0.3.1</a></td>
       <td>实现Set选项<br>选项默认不开启(效果和上版本一样)。
         <ul>
           <li>允许自定义是否覆盖原有文件。</li>
@@ -52,7 +52,7 @@
       <td>2009-02-02</td>
     </tr>
     <tr>
-      <td><a href="http://pig-formatter.googlecode.com/files/Pig_0_5_3.rar" target="_blank">0.5.3</a></td>
+      <td><a href="https://github.com/redraiment/pig/archive/v0.5.3.zip" target="_blank">0.5.3</a></td>
       <td>
         实现自定义排版功能：
         <ul>
@@ -66,7 +66,7 @@
       <td>2009-02-10</td>
     </tr>
     <tr>
-      <td><a href="http://pig-formatter.googlecode.com/files/Pig_0_7_0.7z" target="_blank">0.7.0</a></td>
+      <td><a href="https://github.com/redraiment/pig/archive/v0.7.0.zip" target="_blank">0.7.0</a></td>
       <td>
         新版本解决的问题
         <ol>
@@ -88,7 +88,7 @@
       <td>2011-01-02</td>
     </tr>
     <tr>
-      <td><a href="http://pig-formatter.googlecode.com/files/Pig_0_7_3.7z" target="_blank">0.7.3</a></td>
+      <td><a href="https://github.com/redraiment/pig/archive/v0.7.3.zip" target="_blank">0.7.3</a></td>
       <td>
         <ol>
           <li>支持 Windows XP 平台；</li>
@@ -99,7 +99,7 @@
       <td>2011-01-03</td>
     </tr>
     <tr>
-      <td><a href="http://pig-formatter.googlecode.com/files/Pig_0_7_5.zip" target="_blank">0.7.5</a></td>
+      <td><a href="https://github.com/redraiment/pig/archive/v0.7.5.zip" target="_blank">0.7.5</a></td>
       <td>
         <ol>
           <li>解决 Vista 和 Win7 下默认没有 Common Dialog 的问题；</li>

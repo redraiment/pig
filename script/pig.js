@@ -22,9 +22,14 @@ FSO.select = function() {
         dialog.MaxFileSize = Math.pow(2, 15) - 1; // 32KB
         dialog.Flags = this.cdlOFNAllowMultiselect;
     } catch(e) {
-        // Win XP
-        dialog = new ActiveXObject("UserAccounts.CommonDialog");
-        dialog.Flags = 0;
+	try {
+            // Win XP
+            dialog = new ActiveXObject("UserAccounts.CommonDialog");
+            dialog.Flags = 0;
+	} catch (e) {
+	    dialog = $('<input type="file" />');
+	    return [ dialog.click().val() ];
+	}
     }
 
     dialog.Flags += this.cdlOFNHideReadOnly;
@@ -45,9 +50,14 @@ FSO.save = function () {
         dialog.DialogTitle = "保存路径";
         dialog.MaxFileSize = Math.pow(2, 15) - 1; // 32KB
     } catch(e) {
-        // Win XP
-        dialog = new ActiveXObject("UserAccounts.CommonDialog");
-    }
+	try {
+            // Win XP
+            dialog = new ActiveXObject("UserAccounts.CommonDialog");
+	} catch (e) {
+	    dialog = new ActiveXObject("Shell.Application");
+	    return dialog.BrowseForFolder(0, "选择一个目录", 1).Self.Path + '\\word.' + $('.output_style option:selected').val();
+	}
+   }
 
     dialog.Flags = this.cdlOFNHideReadOnly + this.cdlOFNPathMustExist;
     dialog.Filter = "网页 (*.html)|*.html|Excel (*.csv)|*.csv|所有文件(*.*)|*.*";
@@ -235,6 +245,33 @@ Pig.generateCSV = function (file) {
             record[i] = '"' + Pig.list[r][Pig.configure.output[i]] + '"';
         }
         fout.WriteLine(record.join(','));
+    }
+
+    fout.close();
+}
+
+Pig.generateTXT = function (file) {
+    var thead = {
+        num: '序号',
+        word: '单词',
+        phonetic_alphabet: '音标',
+        paraphrase: '解释'
+    };
+
+    var fout = FSO.open(file, FSO.ModeWrite, FSO.TypeUnicode);
+
+    var title = [];
+    for (var i = 0; i < Pig.configure.output.length; i++) {
+        title[i] = thead[Pig.configure.output[i]];
+    }
+    fout.WriteLine(title.join(' '));
+
+    for (var r = 0; r < Pig.list.length; r++) {
+        var record = [];
+        for (var i = 0; i < Pig.configure.output.length; i++) {
+            record[i] = Pig.list[r][Pig.configure.output[i]];
+        }
+        fout.WriteLine(record.join(' '));
     }
 
     fout.close();

@@ -50,7 +50,7 @@ FSO.save = function () {
     }
 
     dialog.Flags = this.cdlOFNHideReadOnly + this.cdlOFNPathMustExist;
-    dialog.Filter = "网页 (*.html)|*.html|所有文件(*.*)|*.*";
+    dialog.Filter = "网页 (*.html)|*.html|Excel (*.csv)|*.csv|所有文件(*.*)|*.*";
     dialog.FilterIndex = 1;
     dialog.ShowSave();
     return dialog.FileName;
@@ -112,7 +112,7 @@ Pig.save = function () {
 
 Pig.generateOutputFileName = function (file) {
     var prefix = file.replace(/(\.[^.]*)?$/, '');
-    var name = prefix + '.html';
+    var name = prefix + '.' + Pig.configure.style.toLowerCase();
     if (Pig.configure.overwrite) {
         return name;
     }
@@ -121,7 +121,7 @@ Pig.generateOutputFileName = function (file) {
     var i = 0;
     while (fso.FileExists(name)) {
         i++;
-        name = prefix + '(' + i + ').html';
+        name = prefix + '(' + i + ').' + Pig.configure.style.toLowerCase();
     }
     return name;
 };
@@ -141,7 +141,12 @@ Pig.load = function (file) {
             item.phonetic_alphabet = line.substr(1);
         } else if (line.charAt(0) == '#') {
             if (item.paraphrase) {
-                item.paraphrase += '<br/>' + line.substr(1);
+                if (Pig.configure.style == 'HTML') {
+                    item.paraphrase += '<br/>';
+                } else if (Pig.configure.style == 'CSV') {
+                    item.paraphrase += '。';
+                }
+                item.paraphrase += line.substr(1);
             } else {
                 item.paraphrase = line.substr(1);
             }
@@ -208,8 +213,31 @@ Pig.generateHTML = function (file) {
     fout.close();
 };
 
-Pig.generateEXCEL = function (file) {
-    alert('暂不支持');
+Pig.generateCSV = function (file) {
+    var thead = {
+        num: '"序号"',
+        word: '"单词"',
+        phonetic_alphabet: '"音标"',
+        paraphrase: '"解释"'
+    };
+
+    var fout = FSO.open(file, FSO.ModeWrite, FSO.TypeUnicode);
+
+    var title = [];
+    for (var i = 0; i < Pig.configure.output.length; i++) {
+        title[i] = thead[Pig.configure.output[i]];
+    }
+    fout.WriteLine(title.join(','));
+
+    for (var r = 0; r < Pig.list.length; r++) {
+        var record = [];
+        for (var i = 0; i < Pig.configure.output.length; i++) {
+            record[i] = '"' + Pig.list[r][Pig.configure.output[i]] + '"';
+        }
+        fout.WriteLine(record.join(','));
+    }
+
+    fout.close();
 }
 
 $(function () {
